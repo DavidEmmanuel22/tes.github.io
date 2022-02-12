@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <meta charset="UTF-8" />
+                <title>Detecting OS</title>
+        </head>
+        <body>
+                <script>
+                        const getMobileOS = () => {
+                                const ua = navigator.userAgent
+                                if (/android/i.test(ua)) {
+                                        return "Android"
+                                } else if ((/iPad|iPhone|iPod/.test(ua)) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+                                        return "iOS"
+                                }
+                                return "Other"
+                        }
+                        let os = getMobileOS();
+                        if (os === "iOS") {
+                                window.location.href = "nowAppInvex://";
+                        } else if (os === "Android") {
+                                // Here implement android redirection 
+                                window.location.href = "now.schema";
+
+                                document.write("Android detected");
+                        }
+                </script>
+        </body>
+</html>
